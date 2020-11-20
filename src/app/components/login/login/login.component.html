@@ -1,0 +1,25 @@
+<body>
+    <h1> Test </h1>
+    <!--  <div class="col-md-6 col-md-offset-3">
+        <div class="login-wrapper">
+          <h2>Page de connexion</h2>
+          <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
+              <label for="login">Identifiant</label>
+              <input type="text" class="form-control" name="login" id="login" [(ngModel)]="utilisateur.login" #login="ngModel" placeholder='Saisissez votre identifiant' required />
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+              <label for="password">Mot de passe</label>
+              <input type="password" class="form-control" name="password" id="password" [(ngModel)]="utilisateur.password" #password="ngModel" placeholder='Saisissez votre mot de passe' required />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary pull-right" [disabled]="!f.form.valid">Connexion</button>
+            </div>
+          </form>
+        </div>
+      </div>  
+    -->  
+    <div class="form-group">
+        <button class="btn btn-primary pull-left" (click)="login()" >Connexion</button>
+    </div>
+</body>

@@ -7,3 +7,4 @@ export class CompteComptable {
     devise:Devise=new Devise();
     devises:Devise[];
     deleted:boolean;
+}

@@ -1,1 +1,75 @@
-<p>ligne-ecriture works!</p>
+
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Création des lignes écriture</strong>
+          </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="Code">Libellé</label>
+            <input type="text" class="form-control" id="Libelle" [(ngModel)]="ligneEcriture.libelle">
+          </div>
+      
+        <div class="form-group">
+            <label for="Nom">Débit</label>
+            <input type="number" class="form-control" id="Debit" [(ngModel)]="ligneEcriture.debit">
+          </div>
+
+          <div class="form-group">
+            <label for="Nom">Crédit</label>
+            <input type="number" class="form-control" id="Credit" [(ngModel)]="ligneEcriture.credit">
+          </div>
+
+          <div class="form-group">
+            <label for="Nom">Date écriture</label>
+            <input type="date" class="form-control" id="DateEcriture" [(ngModel)]="ligneEcriture.dateEcriture">
+          </div>
+      
+
+    </div>
+    <div class="card-footer">
+    <button type="button" class="btn btn-success" (click)="save()">Save</button>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Liste des Dates Ecriture
+          </div>
+          <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Libellé</th>
+          <th>Débit</th>
+          <th>Crédit</th>
+          <th>Date Ecriture</th>
+ 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ligneEcritures">
+          <td>{{item.id}}</td>
+          <td>{{item.libelle}}</td>
+          <td>{{item.debit}}</td>
+          <td>{{item.credit}}</td>
+          <td>{{item.dateEcriture}}</td>
+
+          <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
+              <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>
+              <button type ="button" class="btn btn-info" (click)="deleted(item.id)">Deleted</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+  </div>

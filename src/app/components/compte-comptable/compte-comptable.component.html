@@ -2,7 +2,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
-        <strong>Création d'une Compte-Comptable</strong>
+        <strong>Création des Comptes-Comptable</strong>
       </div>
       <div class="card-body">
 
@@ -66,6 +66,7 @@
               <td>
                 <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
                 <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>
+                <button type ="button" class="btn btn-info" (click)="deleted(item.id)">Deleted</button>
               </td>
             </tr>
           </tbody>

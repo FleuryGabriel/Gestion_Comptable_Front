@@ -24,12 +24,13 @@
                             </div>
                             <label>Role : </label>
                             <select [(ngModel)]="utilisateur.userRole">
-                                <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>                                
+                                <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
                             </select>
                             <label>Employe : </label>
                             <select [(ngModel)]="utilisateur.employe">
-                                <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>                                
+                                <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
                             </select>
+                        </div>
                     </form>
                     <div class=" card-footer" *ngIf="ajouterIsActive">
                         <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>

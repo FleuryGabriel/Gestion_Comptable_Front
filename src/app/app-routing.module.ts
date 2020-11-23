@@ -6,6 +6,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { CompteComptableComponent } from './components/compte-comptable/compte-comptable.component';
+import { DeviseComponent } from './components/devise/devise.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,8 +41,12 @@ const routes: Routes = [
     ]
   },
   {
-    path: "**",
-    redirectTo: "dashboard"
+    path: 'compteComptables',
+    component: CompteComptableComponent
+  },
+  {
+    path: 'devises',
+    component: DeviseComponent
   }
 ];
 

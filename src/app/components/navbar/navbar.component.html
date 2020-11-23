@@ -9,7 +9,6 @@
         </button>
       </div>
       <a class=" navbar-brand" href="javascript:void(0)"> {{ getTitle() }} </a>
-      <a (click)="logout()">Se déconnecter</a>
     </div>
     <button
       aria-label="Toggle navigation"
@@ -25,7 +24,6 @@
       <span class=" navbar-toggler-bar navbar-kebab"> </span>
     </button>
     <div class=" navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
-      <a (click)="logout()">Se déconnecter</a>
       <ul class=" navbar-nav ml-auto">
         <li class=" search-bar input-group">
           <button
@@ -93,9 +91,9 @@
           </a>
           <ul class=" dropdown-navbar" ngbDropdownMenu>
             <li>
-              <h style="color:#FF0000">
-                Welcome home getLogin() !
-              </h>
+             <!-- <h style="color:#FF0000">
+                Welcome home {{getLogin()}} !
+              </h> -->
             </li>
             <li class=" nav-link">
               <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>

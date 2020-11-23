@@ -2,11 +2,11 @@ import { Employe } from './employe';
 import { Role } from './role';
 
 export class Utilisateur {
-    login:String;
-    password:String;
+    login:string;
+    password:string;
     dateCreation:Date;
     enable:boolean;
     deleted:boolean;
-    userRole:Role;
+    role:Role;
     employe:Employe
 }

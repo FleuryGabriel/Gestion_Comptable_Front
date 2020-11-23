@@ -1,4 +1,4 @@
 export class Role {
-    nom:String;
+    nom:string;
     deleted:Boolean
 }

@@ -1,25 +1,46 @@
+<html>
 <body>
-    <h1> Test </h1>
-    <!--  <div class="col-md-6 col-md-offset-3">
-        <div class="login-wrapper">
-          <h2>Page de connexion</h2>
-          <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-              <label for="login">Identifiant</label>
-              <input type="text" class="form-control" name="login" id="login" [(ngModel)]="utilisateur.login" #login="ngModel" placeholder='Saisissez votre identifiant' required />
-            </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-              <label for="password">Mot de passe</label>
-              <input type="password" class="form-control" name="password" id="password" [(ngModel)]="utilisateur.password" #password="ngModel" placeholder='Saisissez votre mot de passe' required />
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary pull-right" [disabled]="!f.form.valid">Connexion</button>
-            </div>
-          </form>
-        </div>
-      </div>  
-    -->  
-    <div class="form-group">
-        <button class="btn btn-primary pull-left" (click)="login()" >Connexion</button>
-    </div>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+			</div>
+			
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Nom d'utilisateur" [(ngModel)]="login" name="login" autocomplete="username" required>
+					</div>
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name="password" autocomplete="current-password" required>
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="Auth" (click)="authentification()" class="login_btn_perso float">
+					</div>
+				</form>
+			</div>
+
+			
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Vous n'avez pas de compte ? <a href="#">Faire une demande</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Mot de passe oublié ?</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
 </body>
+</html>

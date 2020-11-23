@@ -1,3 +1,7 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card card-plain">
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -21,9 +25,9 @@
           <input type="text" class="form-control" id="Sens" [(ngModel)]="compteComptable.sens">
         </div>
         <div class="form-group">
-          <label for="devise">Devise</label>
-          <select   id="devise" [(ngModel)]="compteComptable.devise" >
-            <option *ngFor="let devise of devises" ngValue="devise">{{devise.nom}}</option>
+          <label for="devise">Devise</label> 
+          <select id="devise" [(ngModel)]="compteComptable.devise" class="form-control text-Whit bg-dark">
+            <option *ngFor="let devise of devises" [ngValue]="devise">{{devise.nom}}</option>
           </select>
         </div>
 
@@ -74,4 +78,8 @@
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
+</div>
 </div>

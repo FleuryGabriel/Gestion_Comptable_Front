@@ -35,7 +35,7 @@ export class EmployeComponent implements OnInit {
     history.go(0);
   }
 
-  supprimer(id:number){
+  supprimerDefinitivement(id:number){
     this.eService.delete(id).subscribe(
       response => {
         if(response.status==200){
@@ -45,7 +45,7 @@ export class EmployeComponent implements OnInit {
     )
   }
 
-  supprimerDefinitivement(id:number, emp:Employe){
+  supprimer(id:number, emp:Employe){
     this.eService.deleted(id,emp).subscribe(
       response => {
         if(response.status==200){
@@ -60,6 +60,9 @@ export class EmployeComponent implements OnInit {
       this.ajouterIsActive=false;
     }else{
       this.ajouterIsActive=true;
+    }
+    if(this.modifierIsActive){
+      this.modifierIsActive=false;
     }
   }
 

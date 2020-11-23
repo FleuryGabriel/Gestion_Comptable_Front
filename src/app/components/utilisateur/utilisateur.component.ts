@@ -35,6 +35,8 @@ export class UtilisateurComponent implements OnInit {
       data => {this.roles=data}
     )
 
+    
+
   }
 
   ajouter(){
@@ -43,23 +45,15 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateur.deleted = false;
     this.utilisateur.enable = true;
 
-    this.uService.save(this.utilisateur).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    );
+    this.uService.save(this.utilisateur).subscribe();
+    history.go(0);
+
   }
 
   modifier(){
-    this.uService.save(this.utilisateur).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    );
+    this.uService.save(this.utilisateur).subscribe();
+    history.go(0);
+
   }
 
   supprimer(id:number){
@@ -67,23 +61,15 @@ export class UtilisateurComponent implements OnInit {
       data => {this.utilisateur=data}
     )
     this.utilisateur.enable=false;
-    this.uService.delete(id).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
+    this.uService.delete(id).subscribe()
+    history.go(0);
+
   }
 
   supprimerDefinitivement(id:number, user:Utilisateur){
-    this.uService.deleted(id,user).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
+    this.uService.deleted(id,user).subscribe();
+    history.go(0);
+
   }
 
   activerAjout(){
@@ -91,6 +77,9 @@ export class UtilisateurComponent implements OnInit {
       this.ajouterIsActive=false;
     }else{
       this.ajouterIsActive=true;
+    }
+    if(this.modifierIsActive){
+      this.modifierIsActive=false;
     }
   }
 

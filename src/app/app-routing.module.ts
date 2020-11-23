@@ -7,6 +7,15 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { AuthGuard } from './service/auth/auth.guard';
+import { CompteComptableComponent } from './components/compte-comptable/compte-comptable.component';
+import { DeviseComponent } from './components/devise/devise.component';
+import { UtilisateurComponent } from './components/utilisateur/utilisateur.component';
+import { EmployeComponent } from './components/employe/employe.component';
+import { AgenceComponent } from './components/agence/agence.component';
+import { RoleComponent } from './components/role/role.component';
+import { ExerciceComponent } from './components/exercice/exercice.component';
+import { LigneEcritureComponent } from './components/ligne-ecriture/ligne-ecriture.component';
+import { JournalComponent } from './components/journal/journal.component';
 
 const routes: Routes = [
 
@@ -40,7 +49,22 @@ const routes: Routes = [
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
     ]
-  }
+  },
+  {
+    path: 'compteComptables',
+    component: CompteComptableComponent
+  },
+  {
+    path: 'devises',
+    component: DeviseComponent
+  },
+  {path:'utilisateurs', component:UtilisateurComponent},
+  {path:'employes', component:EmployeComponent},
+  {path:'agences', component:AgenceComponent},
+  {path:'roles', component:RoleComponent},
+  {path:'exercices', component:ExerciceComponent},
+  {path:'lignesEcriture', component:LigneEcritureComponent},
+  {path:'journaux', component:JournalComponent}
 ];
 
 @NgModule({

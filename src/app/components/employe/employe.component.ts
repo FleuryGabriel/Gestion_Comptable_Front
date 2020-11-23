@@ -26,23 +26,13 @@ export class EmployeComponent implements OnInit {
   }
 
   ajouter(){
-    this.eService.save(this.employe).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    );
+    this.eService.save(this.employe).subscribe();
+    history.go(0);
   }
 
   modifier(){
-    this.eService.save(this.employe).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    );
+    this.eService.save(this.employe).subscribe();
+    history.go(0);
   }
 
   supprimer(id:number){

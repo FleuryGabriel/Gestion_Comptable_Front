@@ -16,6 +16,7 @@ import { RoleComponent } from './components/role/role.component';
 import { ExerciceComponent } from './components/exercice/exercice.component';
 import { LigneEcritureComponent } from './components/ligne-ecriture/ligne-ecriture.component';
 import { JournalComponent } from './components/journal/journal.component';
+import { IconsComponent } from './pages/icons/icons.component';
 
 const routes: Routes = [
 
@@ -58,6 +59,9 @@ const routes: Routes = [
     path: 'devises',
     component: DeviseComponent
   },
+
+  {path:'icons', component:IconsComponent},
+
   {path:'utilisateurs', component:UtilisateurComponent},
   {path:'employes', component:EmployeComponent},
   {path:'agences', component:AgenceComponent},

@@ -19,27 +19,27 @@ export const ROUTES: RouteInfo[] = [
     path: "/agences",
     title: "Agence ",
     rtlTitle: "Agence",
-    icon: "icon-chart-pie-36",
+    icon: "icon-bank",
     class: ""
   },
   {
     path: "/employes",
     title: "Employe",
     rtlTitle: "Employe",
-    icon: "icon-atom",
+    icon: "icon-single-02",
     class: ""
   },
   {
     path: "/roles",
     title: "Role",
     rtlTitle: "Role",
-    icon: "icon-pin",
+    icon: "icon-vector",
     class: "" },
   {
     path: "/utilisateurs",
     title: "Utilisateur",
     rtlTitle: "Utilisateur",
-    icon: "icon-bell-55",
+    icon: "icon-laptop",
     class: ""
   },
 
@@ -47,21 +47,21 @@ export const ROUTES: RouteInfo[] = [
     path: "/exercices",
     title: "Exercice",
     rtlTitle: "Exercice",
-    icon: "icon-single-02",
+    icon: "icon-calendar-60",
     class: ""
   },
   {
     path: "/journaux",
     title: "Journal",
     rtlTitle:"Journal",
-    icon: "icon-puzzle-10",
+    icon: "icon-book-bookmark",
     class: ""
   },
   {
     path: "/lignesEcriture",
     title: "Ligne Ecriture",
     rtlTitle: "Ligne Ecriture",
-    icon: "icon-align-center",
+    icon: "icon-align-left-2",
     class: ""
   },
   {
@@ -75,7 +75,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/devises",
     title: "Devise",
     rtlTitle: "Devise",
-    icon: "icon-world",
+    icon: "icon-money-coins",
     class: ""
   }
 

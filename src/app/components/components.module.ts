@@ -17,10 +17,11 @@ import { ExerciceComponent } from './exercice/exercice.component';
 import { JournalComponent } from './journal/journal.component';
 import { LigneEcritureComponent } from './ligne-ecriture/ligne-ecriture.component';
 import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './login/message/message.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, NgbModule,FormsModule],
-  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent],
+  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent]
 })
 export class ComponentsModule {}

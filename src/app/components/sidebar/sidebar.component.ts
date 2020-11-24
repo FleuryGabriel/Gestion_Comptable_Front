@@ -68,7 +68,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/compteComptables",
     title: "Compte Comptable",
     rtlTitle: "Compte Comptable",
-    icon: "icon-world",
+    icon: "icon-chart-bar-32",
     class: ""
   },
   {

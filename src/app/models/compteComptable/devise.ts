@@ -1,5 +1,5 @@
 export class Devise {
-   code:String;
-   nom:String;
+   code:string;
+   nom:string;
    deleted:boolean;
 }

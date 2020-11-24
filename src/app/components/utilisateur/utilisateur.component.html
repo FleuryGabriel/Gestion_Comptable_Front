@@ -1,97 +1,88 @@
 <div class=" content">
   <div class=" row">
-    <div class=" col-md-8">
-      <div class=" card" *ngIf="ajouterIsActive||modifierIsActive">
-        <div class=" card-header">
-          <h5 class=" title">Ajout d'utilisateur</h5>
-        </div>
-        <div class=" card-body">
-          <form>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" row">
-                  <label> Login </label>
-                  <input class=" form-control" placeholder="Login" type="text" [(ngModel)]="utilisateur.login"
-                    name="login" />
-                </div>
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-header">
+                <strong>Création des utilisateurs</strong>
               </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" row">
-                  <label> Password </label>
-                  <input class=" form-control" placeholder="Password" type="text" [(ngModel)]="utilisateur.password"
-                    name="password" />
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label for="Code">Login</label>
+                  <input type="text" class="form-control" id="Login" [(ngModel)]="utilisateur.login">
                 </div>
+
+                <div class="form-group">
+                  <label for="Nom">Password</label>
+                  <input type="text" class="form-control" id="Password" [(ngModel)]="utilisateur.password">
+                </div>
+
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <select id="devise" [(ngModel)]="utilisateur.role" class="form-control text-Whit bg-dark">
+                    <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="employe">Employe</label>
+                  <select id="employe" [(ngModel)]="utilisateur.employe" class="form-control text-Whit bg-dark">
+                    <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
+                  </select>
+                </div>
+
+
               </div>
-              <label>Role : </label>
-              <select [(ngModel)]="utilisateur.userRole">
-                <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
-              </select>
-              <label>Employe : </label>
-              <select [(ngModel)]="utilisateur.employe">
-                <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
-              </select>
+
+              <div class="card-footer">
+                <button type="button" class="btn btn-success" (click)="save()">Save</button>
+              </div>
             </div>
-          </form>
-          <div class=" card-footer" *ngIf="ajouterIsActive">
-            <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
           </div>
-          <div class=" card-footer" *ngIf="modifierIsActive">
-            <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <i class="fa fa-align-justify"></i> Liste utilisateurs
+              </div>
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Login</th>
+                      <th>Password</th>
+                      <th>Date de création</th>
+                      <th>Role</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Opérations</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of utilisateurs">
+                      <td>{{item.login}}</td>
+                      <td>{{item.password}}</td>
+                      <td>{{item.dateCreation}}</td>
+                      <td>{{item.role.nom}}</td>
+                      <td>{{item.employe.nom}}</td>
+                      <td>{{item.employe.prenom}}</td>
+                      <td>
+                        <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
+                        <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>
+                        <button type="button" class="btn btn-info" (click)="deleted(item.id)">Deleted</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
-
-  
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h4 class=" card-title">Liste des utilisateurs</h4>
-          </div>
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Login</th>
-                    <th>Password</th>
-                    <th>Date de Création</th>
-                    <th>Nom employé</th>
-                    <th>Prénom employé</th>
-                    <th>Role</th>
-                    <th>Compte Actif</th>
-                    <th>Opérations</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let u of utilisateurs">
-                    <td>{{u.login}}</td>
-                    <td>{{u.password}}</td>
-                    <td>{{u.dateCreation}}</td>
-                    <td>{{u.employe.nom}}</td>
-                    <td>{{u.employe.prenom}}</td>
-                    <td>{{u.role}}</td>
-                    <td>{{u.enable}}</td>
-                    <td>
-                      <button class=" btn btn-fill btn-warning" type="submit"
-                        (click)="activerModif(u.id)">Modifier</button>
-                      <button class=" btn btn-fill btn-warning" type="submit"
-                        (click)="supprimer(u.id)">Supprimer</button>
-                      <button class=" btn btn-fill btn-warning" type="submit"
-                        (click)="supprimerDefinitivement(u.id, u)">Supprimer
-                        définitivement</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
 </div>

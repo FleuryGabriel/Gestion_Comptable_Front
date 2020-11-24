@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Exercice } from 'src/app/models/journal/exercice';
+import { Journal } from 'src/app/models/journal/journal';
 import { LigneEcriture } from 'src/app/models/journal/ligne-ecriture';
+import { ExerciceServiceService } from 'src/app/services/journal/exercice-service.service';
+import { JournalServiceService } from 'src/app/services/journal/journal-service.service';
 import { LigneEcritureServiceService } from 'src/app/services/journal/ligne-ecriture-service.service';
+import { JournalComponent } from '../journal/journal.component';
 
 @Component({
   selector: 'app-ligne-ecriture',
@@ -11,13 +16,31 @@ export class LigneEcritureComponent implements OnInit {
 
   ligneEcriture:LigneEcriture = new LigneEcriture();
   ligneEcritures:LigneEcriture[] = new Array();
+  journal:Journal=new Journal();
+  journaux:Journal[]=new Array();
+  exercice:Exercice=new Exercice();
+  exercices:Exercice[]=new Array();
 
-  constructor(private lService: LigneEcritureServiceService) { }
+  constructor(private lService: LigneEcritureServiceService,private exerciceService:ExerciceServiceService,private journalService:JournalServiceService) { }
 
-  ngOnInit(): void {
-    this.lService.findAll();
+  ngOnInit() {
+    this.findAll();
+    this.getExercice();
+    this.getJournal();
   }
 
+  getExercice():void{
+    this.exerciceService.findAll().subscribe((data:Exercice[])=>{
+      this.exercices=data;
+      console.log(this.exercices)
+    })}
+
+    getJournal():void{
+      this.journalService.findAll().subscribe((data:Journal[])=>{
+        this.journaux=data;
+        console.log(this.journaux)
+      })}
+  
   save():void {
     this.lService.save(this.ligneEcriture).subscribe(arg=> {
       console.log(arg,"save Ok", arg.status);

@@ -13,79 +13,75 @@ import { UtilisateurServiceService } from 'src/app/services/utilisateur/utilisat
 })
 export class UtilisateurComponent implements OnInit {
 
-  constructor(private uService:UtilisateurServiceService, private rService:RoleServiceService, private eService:EmployeServiceService) { }
+  constructor(private uService: UtilisateurServiceService, private rService: RoleServiceService, private eService: EmployeServiceService) { }
 
-  utilisateur:Utilisateur = new Utilisateur();
-  utilisateurs:Utilisateur[] = new Array();
-  employes:Employe[] = new Array();
-  roles:Role[] = new Array();
-
-  ajouterIsActive:boolean = false;
-  modifierIsActive:boolean = false;
+  utilisateur: Utilisateur = new Utilisateur();
+  utilisateurs: Utilisateur[];
+  employes: Employe[];
+  roles: Role[];
 
   ngOnInit(): void {
 
-    this.uService.findAll().subscribe(
-      data => {this.utilisateurs=data}
-    )
-    this.eService.findAll().subscribe(
-      data => {this.employes=data}
-    )
+    this.findAll();
+    this.getEmployes();
+    this.getRoles();
+  }
+
+  findAll(): void {
+    this.uService.findAll().subscribe((data: Utilisateur[]) => {
+      this.utilisateurs = data;
+      console.log(this.utilisateurs);
+    })
+  }
+
+  getRoles() {
     this.rService.findAll().subscribe(
-      data => {this.roles=data}
+      (data: Role[]) => { this.roles = data }
     )
   }
 
-  ajouter(){
+  getEmployes() {
+    this.eService.findAll().subscribe(
+      (data: Employe[]) => { this.employes = data;
+      console.log(this.employes)
+      }
+    )
+  }
+
+  save() {
 
     this.utilisateur.dateCreation = new Date();
     this.utilisateur.deleted = false;
     this.utilisateur.enabled = true;
 
+    this.uService.save(this.utilisateur).subscribe(
+      data => {
+        this.findAll();
+        this.utilisateur = new Utilisateur();
+      }
+    );
+  }
+
+  delete(id): void {
+    this.uService.delete(id).subscribe(data => {
+      this.findAll();
+      this.utilisateur = new Utilisateur();
+    });
+  }
+
+  deleted(id): void {
+    this.utilisateur.enabled = false;
     this.uService.save(this.utilisateur).subscribe();
-    history.go(0);
-
+    this.uService.deleted(id, this.utilisateur).subscribe(
+      data => {
+        this.findAll();
+        this.utilisateur = new Utilisateur();
+      }
+    );
   }
 
-  modifier(){
-    this.uService.save(this.utilisateur).subscribe();
-    history.go(0);
-
-  }
-
-  supprimer(id:number){
-    this.uService.findOne(id).subscribe(
-      data => {this.utilisateur=data}
-    )
-    this.utilisateur.enabled=false;
-    this.uService.deleted(id).subscribe()
-    history.go(0);
-
-  }
-
-  supprimerDefinitivement(id:number){
-    this.uService.delete(id).subscribe();
-    history.go(0);
-
-  }
-
-  activerAjout(){
-    if(this.ajouterIsActive){
-      this.ajouterIsActive=false;
-    }else{
-      this.ajouterIsActive=true;
-    }
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }
-  }
-
-  activerModif(id:number){
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }else{
-      this.modifierIsActive=true;
-    }
+  selectOne(item): void {
+    this.utilisateur = item;
   }
 
 

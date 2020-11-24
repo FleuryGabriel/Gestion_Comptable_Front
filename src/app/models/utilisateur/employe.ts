@@ -1,11 +1,11 @@
 import { Agence } from './agence';
 
 export class Employe {
-    nom:String;
-    prenom:String;
+    nom:string;
+    prenom:string;
     dateNaissance:Date;
     cin:Number;
-    email:String;
+    email:string;
     tel:Number;
     salaire:Number;
     deleted:Boolean;

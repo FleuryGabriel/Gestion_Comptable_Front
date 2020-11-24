@@ -34,16 +34,13 @@ export class UtilisateurComponent implements OnInit {
     this.rService.findAll().subscribe(
       data => {this.roles=data}
     )
-
-    
-
   }
 
   ajouter(){
 
     this.utilisateur.dateCreation = new Date();
     this.utilisateur.deleted = false;
-    this.utilisateur.enable = true;
+    this.utilisateur.enabled = true;
 
     this.uService.save(this.utilisateur).subscribe();
     history.go(0);
@@ -60,14 +57,14 @@ export class UtilisateurComponent implements OnInit {
     this.uService.findOne(id).subscribe(
       data => {this.utilisateur=data}
     )
-    this.utilisateur.enable=false;
-    this.uService.delete(id).subscribe()
+    this.utilisateur.enabled=false;
+    this.uService.deleted(id).subscribe()
     history.go(0);
 
   }
 
-  supprimerDefinitivement(id:number, user:Utilisateur){
-    this.uService.deleted(id,user).subscribe();
+  supprimerDefinitivement(id:number){
+    this.uService.delete(id).subscribe();
     history.go(0);
 
   }

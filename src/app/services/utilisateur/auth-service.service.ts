@@ -9,13 +9,13 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   isAuthenticated(): boolean {
-    console.log("OUAIS OUAIS !");
+    console.log("is Authentificated is running (guard)");
     if((localStorage.getItem('utilisateur')) !== null) {
-      console.log("OUAIS OUAIS T'es un bon !");
+      console.log("Authentification succed !");
       return true;
     } 
     else {
-      console.log("NOP BRO !");
+      console.log("Error Authentification");
       return false;
     }
 }

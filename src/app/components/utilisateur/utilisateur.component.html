@@ -1,25 +1,25 @@
 <div class=" content">
     <div class=" row">
         <div class=" col-md-8">
-            <div class=" card">
+            <div class=" card" *ngIf="ajouterIsActive||modifierIsActive">
                 <div class=" card-header">
                     <h5 class=" title">Ajout d'utilisateur</h5>
                 </div>
                 <div class=" card-body">
-                    <form *ngIf="ajouterIsActive||modifierIsActive">
+                    <form>
                         <div class=" row">
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" row">
                                     <label> Login </label>
                                     <input class=" form-control" placeholder="Login" type="text"
-                                        [(ngModel)]="utilisateur.login" />
+                                        [(ngModel)]="utilisateur.login" name="login"/>
                                 </div>
                             </div>
                             <div class=" col-md-6 pl-md-1">
                                 <div class=" row">
                                     <label> Password </label>
                                     <input class=" form-control" placeholder="Password" type="text"
-                                        [(ngModel)]="utilisateur.password" />
+                                        [(ngModel)]="utilisateur.password" name="password"/>
                                 </div>
                             </div>
                             <label>Role : </label>

@@ -1,5 +1,5 @@
 export class Agence {
-    code:String;
-    libelle:String;
+    code:string;
+    libelle:string;
     deleted:Boolean
 }

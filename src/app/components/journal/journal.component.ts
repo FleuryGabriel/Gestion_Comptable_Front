@@ -9,13 +9,13 @@ import { JournalServiceService } from 'src/app/services/journal/journal-service.
 })
 export class JournalComponent implements OnInit {
 
-  constructor(private jService:JournalServiceService) { }
-
   journal:Journal = new Journal();
-  journaux:Journal[] = new Array();
+  journaux:Journal[];
 
   ajouterIsActive:boolean = false;
   modifierIsActive:boolean = false;
+
+  constructor(private jService:JournalServiceService) { }
 
   ngOnInit(): void {
 

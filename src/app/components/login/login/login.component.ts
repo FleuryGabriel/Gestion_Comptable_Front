@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   authentification() {
     this.utilisateurService.selectUserByLogin(this.login).subscribe((data: Utilisateur) => {this.user = data;});
-
+    
     if (this.user.id != null) {
       // console.log(this.utilisateur)
 
@@ -47,14 +47,13 @@ export class LoginComponent implements OnInit {
       } else { 
         this.mapUserTry.set(this.login, 1);
         console.log("Try number", this.mapUserTry.get(this.login)); };
-     
       
       this.utilisateurService.Autentification(this.login, this.password).subscribe((data: Utilisateur) => {
         this.utilisateur = data;
 
         if (this.utilisateur != null && this.utilisateur.enabled == true) {
-        localStorage.setItem('utilisateur', this.utilisateur.login);
-        localStorage.setItem('Role', this.utilisateur.role.nom);
+          sessionStorage.setItem('utilisateur', this.utilisateur.login);
+          sessionStorage.setItem('Role', this.utilisateur.role.nom);
         this.router.navigate(['/dashboard']);
         this.mapUserTry = new Map();
       }

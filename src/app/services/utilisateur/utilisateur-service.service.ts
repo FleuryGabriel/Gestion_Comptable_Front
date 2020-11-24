@@ -38,8 +38,8 @@ export class UtilisateurServiceService {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('Role');
-    localStorage.removeItem('utilisateur');
+    sessionStorage.removeItem('Role');
+    sessionStorage.removeItem('utilisateur');
     this.router.navigate(['login']);
   }
 

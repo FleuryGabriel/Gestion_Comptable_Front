@@ -10,7 +10,7 @@ export class AuthServiceService {
 
   isAuthenticated(): boolean {
     console.log("is Authentificated is running (guard)");
-    if((localStorage.getItem('utilisateur')) !== null) {
+    if((sessionStorage.getItem('utilisateur')) !== null) {
       console.log("Authentification succed !");
       return true;
     } 

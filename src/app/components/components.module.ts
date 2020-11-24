@@ -17,10 +17,19 @@ import { ExerciceComponent } from './exercice/exercice.component';
 import { JournalComponent } from './journal/journal.component';
 import { LigneEcritureComponent } from './ligne-ecriture/ligne-ecriture.component';
 import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './login/message/message.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MdpfalseComponent } from './login/message/mdpfalse/mdpfalse.component';
+import { AccountdisableComponent } from './login/message/accountdisable/accountdisable.component';
+import { LoginunknownComponent } from './login/message/loginunknown/loginunknown.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule,FormsModule],
-  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent],
+  imports: [CommonModule, RouterModule, NgbModule,FormsModule, MatDialogModule,MatInputModule,MatButtonModule,MatCardModule,MatFormFieldModule],
+  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent, MdpfalseComponent, AccountdisableComponent, LoginunknownComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent]
 })
 export class ComponentsModule {}

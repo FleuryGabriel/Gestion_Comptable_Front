@@ -12,73 +12,50 @@ export class EmployeComponent implements OnInit {
   employe:Employe = new Employe();
   employes:Employe[] = new Array();
 
-  ajouterIsActive:boolean = false;
-  modifierIsActive:boolean = false;
-
   constructor(private eService:EmployeServiceService) { }
 
   ngOnInit(): void {
 
-    this.eService.findAll().subscribe(
-      data => {this.employes=data}
-    )
+    this.findAll();
 
   }
 
-  ajouter(){
-    this.eService.save(this.employe).subscribe();
-    history.go(0);
+
+  findAll(): void {
+    this.eService.findAll().subscribe((data: Employe[]) => {
+      this.employes = data;
+    })
   }
 
-  modifier(){
-    this.eService.save(this.employe).subscribe();
-    history.go(0);
-  }
-
-  supprimerDefinitivement(id:number){
-    this.eService.delete(id).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
-  }
-
-  supprimer(id:number, emp:Employe){
-    this.eService.deleted(id,emp).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
-  }
-
-  activerAjout(){
-    if(this.ajouterIsActive){
-      this.ajouterIsActive=false;
-    }else{
-      this.ajouterIsActive=true;
-    }
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }
-  }
-
-  activerModif(id:number){
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }else{
-      this.modifierIsActive=true;
-    }
-
-    this.eService.findOne(id).subscribe(
+  save(){
+    this.eService.save(this.employe).subscribe(
       data => {
-        this.employe=data;
+        this.findAll();
+        this.employe = new Employe();
       }
-    )
-
+    );
   }
+
+  selectOne(item): void {
+    this.employe = item;
+  }
+
+
+    delete(id): void {
+    this.eService.delete(id).subscribe(data => {
+      this.findAll();
+      this.employe = new Employe();
+    });
+  }
+
+  deleted(id): void {
+    this.eService.deleted(id, this.employe).subscribe(
+      data => {
+        this.findAll();
+        this.employe = new Employe();
+      }
+    );
+  }
+
 
 }

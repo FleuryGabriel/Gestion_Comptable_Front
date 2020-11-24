@@ -8,22 +8,22 @@
         <div class="card-body">
           <div class="form-group">
             <label for="Code">Libellé</label>
-            <input type="text" class="form-control" id="Libelle" [(ngModel)]="ligneEcriture.libelle">
+            <input type="text" class="form-control" id="Libelle" [(ngModel)]="ligneEcriture.libelle" name="libelle">
           </div>
 
           <div class="form-group">
             <label for="Nom">Débit</label>
-            <input type="number" class="form-control" id="Debit" [(ngModel)]="ligneEcriture.debit">
+            <input type="number" class="form-control" id="Debit" [(ngModel)]="ligneEcriture.debit" name="debit">
           </div>
 
           <div class="form-group">
             <label for="Nom">Crédit</label>
-            <input type="number" class="form-control" id="Credit" [(ngModel)]="ligneEcriture.credit">
+            <input type="number" class="form-control" id="Credit" [(ngModel)]="ligneEcriture.credit" name = "credit">
           </div>
 
           <div class="form-group">
             <label for="Nom">Date écriture</label>
-            <input type="date" class="form-control" id="DateEcriture" [(ngModel)]="ligneEcriture.dateEcriture">
+            <input type="date" class="form-control" id="DateEcriture" [(ngModel)]="ligneEcriture.dateEcriture" name = "dateEcriture">
           </div>
 
           <div class="form-group">

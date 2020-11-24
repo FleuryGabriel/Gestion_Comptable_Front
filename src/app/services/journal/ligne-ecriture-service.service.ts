@@ -8,7 +8,7 @@ import { LigneEcriture } from 'src/app/models/journal/ligne-ecriture';
 })
 export class LigneEcritureServiceService {
 
-  private baseURL = "http://localhost:9090/ligne_ecritures"
+  private baseURL = "http://localhost:9092/ligne_ecritures"
   constructor(private http:HttpClient) { }
 
   public findAll():Observable<any>{

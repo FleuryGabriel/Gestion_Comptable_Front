@@ -1,79 +1,72 @@
 <div class=" content">
-    <div class=" row">
-        <div class=" col-md-8">
-            <div class=" card">
-                <div class=" card-header">
-                    <h5 class=" title">Ajout de journal comptable</h5>
-                </div>
-                <div class=" card-body">
-                    <form *ngIf="ajouterIsActive||modifierIsActive">
-                        <div class=" row">
-                            <div class=" col-md-6 pr-md-1">
-                                <div class=" row">
-                                    <label> Code </label>
-                                    <input class=" form-control" placeholder="Code" type="text"
-                                        [(ngModel)]="journal.code" />
-                                </div>
-                            </div>
-                            <div class=" col-md-6 pl-md-1">
-                                <div class=" row">
-                                    <label> Libellé </label>
-                                    <input class=" form-control" placeholder="Libellé" type="text"
-                                        [(ngModel)]="journal.libelle" />
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class=" card-footer" *ngIf="ajouterIsActive">
-                        <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
-                    </div>
-                    <div class=" card-footer" *ngIf="modifierIsActive">
-                        <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
-                    </div>
-                </div>
-            </div>
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Ajout de journal comptable</h5>
         </div>
-    </div>
-
-    <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
-
-    <div class=" content">
-        <div class=" row">
-            <div class=" col-md-12">
-                <div class=" card">
-                    <div class=" card-header">
-                        <h4 class=" card-title">Liste des journaux comptable</h4>
-                    </div>
-                    <div class=" card-body">
-                        <div class=" table-responsive">
-                            <table class=" table tablesorter" id="">
-                                <thead class=" text-primary">
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Libellé</th>
-                                        <th>Opérations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let j of journaux">
-                                        <td>{{j.code}}</td>
-                                        <td>{{j.libelle}}</td>
-                                        <td>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="activerModif(j.id)">Modifier</button>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="supprimer(j.id)">Supprimer</button>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="supprimerDefinitivement(j.id, j)">Supprimer
-                                                définitivement</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <div class=" card-body">
+          <form *ngIf="ajouterIsActive||modifierIsActive">
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" row">
+                  <label> Code </label>
+                  <input class=" form-control" placeholder="Code" type="text" [(ngModel)]="journal.code" />
                 </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class=" row">
+                  <label> Libellé </label>
+                  <input class=" form-control" placeholder="Libellé" type="text" [(ngModel)]="journal.libelle" />
+                </div>
+              </div>
             </div>
+          </form>
+          <div class=" card-footer" *ngIf="ajouterIsActive">
+            <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
+          </div>
+          <div class=" card-footer" *ngIf="modifierIsActive">
+            <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
+
+
+  <div class=" row">
+    <div class=" card">
+      <div class=" card-header">
+        <h4 class=" card-title">Liste des journaux comptable</h4>
+      </div>
+      <div class=" card-body">
+        <div class=" table-responsive">
+          <table class=" table tablesorter" id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>Code</th>
+                <th>Libellé</th>
+                <th>Opérations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let j of journaux">
+                <td>{{j.code}}</td>
+                <td>{{j.libelle}}</td>
+                <td>
+                  <button class=" btn btn-fill btn-warning" type="submit" (click)="activerModif(j.id)">Modifier</button>
+                  <button class=" btn btn-fill btn-warning" type="submit" (click)="supprimer(j.id)">Supprimer</button>
+                  <button class=" btn btn-fill btn-warning" type="submit"
+                    (click)="supprimerDefinitivement(j.id, j)">Supprimer
+                    définitivement</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

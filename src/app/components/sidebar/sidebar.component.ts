@@ -11,66 +11,74 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
     title: "Dashboard",
-    rtlTitle: "لوحة القيادة",
+    rtlTitle: "Dashboard",
     icon: "icon-chart-pie-36",
     class: ""
   },
   {
-    path: "/compteComptables",
-    title: "Compte Comptables",
-    rtlTitle: "لوحة القيادة",
+    path: "/agences",
+    title: "Agence ",
+    rtlTitle: "Agence",
     icon: "icon-chart-pie-36",
     class: ""
   },
   {
-    path: "/icons",
-    title: "Icons",
-    rtlTitle: "الرموز",
+    path: "/employes",
+    title: "Employe",
+    rtlTitle: "Employe",
     icon: "icon-atom",
     class: ""
   },
   {
-    path: "/maps",
-    title: "Maps",
-    rtlTitle: "خرائط",
+    path: "/roles",
+    title: "Role",
+    rtlTitle: "Role",
     icon: "icon-pin",
     class: "" },
   {
-    path: "/notifications",
-    title: "Notifications",
-    rtlTitle: "إخطارات",
+    path: "/utilisateurs",
+    title: "Utilisateur",
+    rtlTitle: "Utilisateur",
     icon: "icon-bell-55",
     class: ""
   },
 
   {
-    path: "/user",
-    title: "User Profile",
-    rtlTitle: "ملف تعريفي للمستخدم",
+    path: "/exercices",
+    title: "Exercice",
+    rtlTitle: "Exercice",
     icon: "icon-single-02",
     class: ""
   },
   {
-    path: "/tables",
-    title: "Table List",
-    rtlTitle: "قائمة الجدول",
+    path: "/journaux",
+    title: "Journal",
+    rtlTitle:"Journal",
     icon: "icon-puzzle-10",
     class: ""
   },
   {
-    path: "/typography",
-    title: "Typography",
-    rtlTitle: "طباعة",
+    path: "/lignesEcriture",
+    title: "Ligne Ecriture",
+    rtlTitle: "Ligne Ecriture",
     icon: "icon-align-center",
     class: ""
   },
   {
-    path: "/rtl",
-    title: "RTL Support",
-    rtlTitle: "ار تي ال",
+    path: "/compteComptables",
+    title: "Compte Comptable",
+    rtlTitle: "Compte Comptable",
+    icon: "icon-world",
+    class: ""
+  },
+  {
+    path: "/devises",
+    title: "Devise",
+    rtlTitle: "Devise",
     icon: "icon-world",
     class: ""
   }
+
 ];
 
 @Component({

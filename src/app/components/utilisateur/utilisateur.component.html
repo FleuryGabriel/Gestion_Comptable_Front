@@ -1,97 +1,97 @@
 <div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card" *ngIf="ajouterIsActive||modifierIsActive">
+        <div class=" card-header">
+          <h5 class=" title">Ajout d'utilisateur</h5>
+        </div>
+        <div class=" card-body">
+          <form>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" row">
+                  <label> Login </label>
+                  <input class=" form-control" placeholder="Login" type="text" [(ngModel)]="utilisateur.login"
+                    name="login" />
+                </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class=" row">
+                  <label> Password </label>
+                  <input class=" form-control" placeholder="Password" type="text" [(ngModel)]="utilisateur.password"
+                    name="password" />
+                </div>
+              </div>
+              <label>Role : </label>
+              <select [(ngModel)]="utilisateur.userRole">
+                <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
+              </select>
+              <label>Employe : </label>
+              <select [(ngModel)]="utilisateur.employe">
+                <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
+              </select>
+            </div>
+          </form>
+          <div class=" card-footer" *ngIf="ajouterIsActive">
+            <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
+          </div>
+          <div class=" card-footer" *ngIf="modifierIsActive">
+            <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
+
+  
     <div class=" row">
-        <div class=" col-md-8">
-            <div class=" card" *ngIf="ajouterIsActive||modifierIsActive">
-                <div class=" card-header">
-                    <h5 class=" title">Ajout d'utilisateur</h5>
-                </div>
-                <div class=" card-body">
-                    <form>
-                        <div class=" row">
-                            <div class=" col-md-6 pr-md-1">
-                                <div class=" row">
-                                    <label> Login </label>
-                                    <input class=" form-control" placeholder="Login" type="text"
-                                        [(ngModel)]="utilisateur.login" name="login"/>
-                                </div>
-                            </div>
-                            <div class=" col-md-6 pl-md-1">
-                                <div class=" row">
-                                    <label> Password </label>
-                                    <input class=" form-control" placeholder="Password" type="text"
-                                        [(ngModel)]="utilisateur.password" name="password"/>
-                                </div>
-                            </div>
-                            <label>Role : </label>
-                            <select [(ngModel)]="utilisateur.userRole">
-                                <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
-                            </select>
-                            <label>Employe : </label>
-                            <select [(ngModel)]="utilisateur.employe">
-                                <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class=" card-footer" *ngIf="ajouterIsActive">
-                        <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
-                    </div>
-                    <div class=" card-footer" *ngIf="modifierIsActive">
-                        <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
-                    </div>
-                </div>
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Liste des utilisateurs</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Date de Création</th>
+                    <th>Nom employé</th>
+                    <th>Prénom employé</th>
+                    <th>Role</th>
+                    <th>Compte Actif</th>
+                    <th>Opérations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of utilisateurs">
+                    <td>{{u.login}}</td>
+                    <td>{{u.password}}</td>
+                    <td>{{u.dateCreation}}</td>
+                    <td>{{u.employe.nom}}</td>
+                    <td>{{u.employe.prenom}}</td>
+                    <td>{{u.role}}</td>
+                    <td>{{u.enable}}</td>
+                    <td>
+                      <button class=" btn btn-fill btn-warning" type="submit"
+                        (click)="activerModif(u.id)">Modifier</button>
+                      <button class=" btn btn-fill btn-warning" type="submit"
+                        (click)="supprimer(u.id)">Supprimer</button>
+                      <button class=" btn btn-fill btn-warning" type="submit"
+                        (click)="supprimerDefinitivement(u.id, u)">Supprimer
+                        définitivement</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
-
-    <div class=" content">
-        <div class=" row">
-            <div class=" col-md-12">
-                <div class=" card">
-                    <div class=" card-header">
-                        <h4 class=" card-title">Liste des utilisateurs</h4>
-                    </div>
-                    <div class=" card-body">
-                        <div class=" table-responsive">
-                            <table class=" table tablesorter" id="">
-                                <thead class=" text-primary">
-                                    <tr>
-                                        <th>Login</th>
-                                        <th>Password</th>
-                                        <th>Date de Création</th>
-                                        <th>Nom employé</th>
-                                        <th>Prénom employé</th>
-                                        <th>Role</th>
-                                        <th>Compte Actif</th>
-                                        <th>Opérations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let u of utilisateurs">
-                                        <td>{{u.login}}</td>
-                                        <td>{{u.password}}</td>
-                                        <td>{{u.dateCreation}}</td>
-                                        <td>{{u.employe.nom}}</td>
-                                        <td>{{u.employe.prenom}}</td>
-                                        <td>{{u.role}}</td>
-                                        <td>{{u.enable}}</td>
-                                        <td>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="activerModif(u.id)">Modifier</button>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="supprimer(u.id)">Supprimer</button>
-                                            <button class=" btn btn-fill btn-warning" type="submit"
-                                                (click)="supprimerDefinitivement(u.id, u)">Supprimer
-                                                définitivement</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </div>

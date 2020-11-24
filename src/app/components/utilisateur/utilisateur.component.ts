@@ -52,7 +52,7 @@ export class UtilisateurComponent implements OnInit {
 
     this.utilisateur.dateCreation = new Date();
     this.utilisateur.deleted = false;
-    this.utilisateur.enable = true;
+    this.utilisateur.enabled = true;
 
     this.uService.save(this.utilisateur).subscribe(
       data => {
@@ -70,7 +70,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   deleted(id): void {
-    this.utilisateur.enable = false;
+    this.utilisateur.enabled = false;
     this.uService.save(this.utilisateur).subscribe();
     this.uService.deleted(id, this.utilisateur).subscribe(
       data => {

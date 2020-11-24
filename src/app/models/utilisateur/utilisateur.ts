@@ -5,7 +5,7 @@ export class Utilisateur {
     login:string;
     password:string;
     dateCreation:Date;
-    enable:boolean;
+    enabled:boolean;
     deleted:boolean;
     role:Role;
     employe:Employe

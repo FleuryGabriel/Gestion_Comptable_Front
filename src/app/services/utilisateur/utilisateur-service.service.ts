@@ -28,8 +28,8 @@ export class UtilisateurServiceService {
     return this.httpClient.delete(this.baseURL + "/" + id)
   }
 
-  public deleted(id: number): Observable<any> {
-    return this.httpClient.put(this.baseURL + "/" + id,"")
+  public deleted(id: number, utilisateur: Utilisateur): Observable<any> {
+    return this.httpClient.put(this.baseURL + "/" + id, utilisateur)
   }
 
   Autentification(login, password): any {

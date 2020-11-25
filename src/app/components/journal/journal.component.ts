@@ -46,7 +46,7 @@ export class JournalComponent implements OnInit {
     );
   }
 
-  supprimer(id:number){
+  supprimerDefinitivement(id:number){
     this.jService.delete(id).subscribe(
       response => {
         if(response.status==200){
@@ -56,7 +56,7 @@ export class JournalComponent implements OnInit {
     )
   }
 
-  supprimerDefinitivement(id:number, journal:Journal){
+  supprimer(id:number, journal:Journal){
     this.jService.deleted(id,journal).subscribe(
       response => {
         if(response.status==200){

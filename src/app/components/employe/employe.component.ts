@@ -11,12 +11,15 @@ export class EmployeComponent implements OnInit {
 
   employe:Employe = new Employe();
   employes:Employe[] = new Array();
+  logadm:boolean;
 
   constructor(private eService:EmployeServiceService) { }
 
   ngOnInit(): void {
 
     this.findAll();
+    if(sessionStorage.getItem('Role')=="admin") {
+      this.logadm = true;};
 
   }
 

@@ -11,11 +11,14 @@ export class RoleComponent implements OnInit {
 
   role:Role = new Role();
   roles:Role[] = new Array();
+  logadm:boolean;
 
   constructor(private rService: RoleServiceService) { }
 
   ngOnInit(): void {
     this.rService.findAll().subscribe(data => {this.roles=data})
+    if(sessionStorage.getItem('Role')=="admin") {
+      this.logadm = true;};
   }
 
   save():void {

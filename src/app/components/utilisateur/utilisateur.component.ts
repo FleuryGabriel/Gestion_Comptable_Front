@@ -95,6 +95,7 @@ export class UtilisateurComponent implements OnInit {
   searchByLogin(): void {
     console.log("searching <=>");
     console.log(this.login);
+    
     this.uService.selectUserWithLogin(this.login).subscribe(
       (data: Utilisateur[]) => { 
         this.utilisateurs = data;

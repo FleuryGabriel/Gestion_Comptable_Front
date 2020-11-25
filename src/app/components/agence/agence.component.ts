@@ -11,11 +11,14 @@ export class AgenceComponent implements OnInit {
 
   agence:Agence= new Agence();
   agences:Agence[];
+  logadm:boolean;
 
   constructor(private agenceService:AgenceServiceService) { }
 
   ngOnInit() {
     this.findAll();
+    if(sessionStorage.getItem('Role')=="admin") {
+      this.logadm = true;};
   }
   save():void {
     this.agenceService.save(this.agence).subscribe(arg=> {

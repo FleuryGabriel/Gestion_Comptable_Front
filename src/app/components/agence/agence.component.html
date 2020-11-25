@@ -1,6 +1,6 @@
 <div class=" content">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" *ngIf="logadm">
       <div class="card">
         <div class="card-header">
           <strong>Création des agences</strong>
@@ -38,7 +38,7 @@
                 <th>Code</th>
                 <th>Libelle</th>
                 <th>Deleted</th>
-
+                <th *ngIf="logadm">Opérations</th>
               </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                 <td>{{item.libelle}}</td>
                 <td>{{item.deleted}}</td>
 
-                <td>
+                <td *ngIf="logadm">
                   <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
                   <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>
                   <button type="button" class="btn btn-info" (click)="deleted(item.id)">Deleted</button>

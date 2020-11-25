@@ -1,70 +1,65 @@
 <div class=" content">
   <div class=" row">
-    <div class=" col-md-8">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class=" title">Ajout de journal comptable</h5>
-        </div>
-        <div class=" card-body">
-          <form *ngIf="ajouterIsActive||modifierIsActive">
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" row">
-                  <label> Code </label>
-                  <input class=" form-control" placeholder="Code" type="text" [(ngModel)]="journal.code" id = "Code" name = "Code"/>
-                </div>
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-header">
+                <strong>Ajout de journal</strong>
               </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" row">
-                  <label> Libellé </label>
-                  <input class=" form-control" placeholder="Libellé" type="text" [(ngModel)]="journal.libelle" id = "Libelle" name = "Libelle"/>
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label for="Code">Code</label>
+                  <input type="text" class="form-control" id="Code" [(ngModel)]="journal.code" name = "Code"/>
                 </div>
+
+                <div class="form-group">
+                  <label for="Nom">Libellé</label>
+                  <input type="text" class="form-control" id="Libelle" [(ngModel)]="journal.libelle" name = "Libelle">
+                </div>
+
+              </div>
+
+              <div class="card-footer">
+                <button type="button" class="btn btn-success" (click)="save()">Save</button>
               </div>
             </div>
-          </form>
-          <div class=" card-footer" *ngIf="ajouterIsActive">
-            <button class=" btn btn-fill btn-danger" type="submit" (click)="ajouter()">Ajouter</button>
-          </div>
-          <div class=" card-footer" *ngIf="modifierIsActive">
-            <button class=" btn btn-fill btn-danger" type="submit" (click)="modifier()">Ajouter</button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <button class=" btn btn-fill btn-success" type="submit" (click)="activerAjout()">Ajouter</button>
-
-
-  <div class=" row">
-    <div class=" card">
-      <div class=" card-header">
-        <h4 class=" card-title">Liste des journaux comptable</h4>
-      </div>
-      <div class=" card-body">
-        <div class=" table-responsive">
-          <table class=" table tablesorter" id="">
-            <thead class=" text-primary">
-              <tr>
-                <th>Code</th>
-                <th>Libellé</th>
-                <th>Opérations</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let j of journaux">
-                <td>{{j.code}}</td>
-                <td>{{j.libelle}}</td>
-                <td>
-                  <button class=" btn btn-fill btn-warning" type="submit" (click)="activerModif(j.id)">Modifier</button>
-                  <button class=" btn btn-fill btn-warning" type="submit" (click)="supprimer(j.id)">Supprimer</button>
-                  <button class=" btn btn-fill btn-warning" type="submit"
-                    (click)="supprimerDefinitivement(j.id, j)">Supprimer
-                    définitivement</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <i class="fa fa-align-justify"></i> Liste des journaux
+              </div>
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Code</th>
+                      <th>Libellé</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of journaux">
+                      <td>{{item.id}}</td>
+                      <td>{{item.code}}</td>
+                      <td>{{item.libelle}}</td>
+                      <td>
+                        <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
+                        <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>
+                        <button type="button" class="btn btn-info" (click)="deleted(item.id)">Deleted</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

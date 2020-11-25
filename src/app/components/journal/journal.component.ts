@@ -11,29 +11,28 @@ export class JournalComponent implements OnInit {
 
   journal:Journal = new Journal();
   journaux:Journal[];
-  
 
-  ajouterIsActive:boolean = false;
-  modifierIsActive:boolean = false;
 
   constructor(private jService:JournalServiceService) { }
 
   ngOnInit(): void {
 
-    this.jService.findAll().subscribe(
-      data => {this.journaux=data}
-    )
-
+    this.findAll();
   }
 
-  ajouter(){
-    this.jService.save(this.journal).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    );
+  save():void {
+    this.jService.save(this.journal).subscribe(arg=> {
+      console.log(arg,"save Ok", arg.status);
+      this.journal=new Journal();
+      this.findAll();
+    });
+  }
+
+  findAll():void {
+    this.jService.findAll().subscribe((data: Journal[])=>{
+      this.journaux=data;
+      console.log(this.journaux);
+    })
   }
 
   modifier(){
@@ -46,40 +45,22 @@ export class JournalComponent implements OnInit {
     );
   }
 
-  supprimerDefinitivement(id:number){
-    this.jService.delete(id).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
+  delete(id):void {
+    this.jService.delete(id).subscribe(data=>{
+      this.findAll();
+    })
+  }
+  selectOne(item):void {
+    this.journal=item;
+    console.log(this.journal)
+  }
+  deleted(id):void{
+    this.jService.deleted(id,this.journal).subscribe(data=>{
+      this.findAll();
+    })
+
   }
 
-  supprimer(id:number, journal:Journal){
-    this.jService.deleted(id,journal).subscribe(
-      response => {
-        if(response.status==200){
-          history.go(0);
-        }
-      }
-    )
-  }
 
-  activerAjout(){
-    if(this.ajouterIsActive){
-      this.ajouterIsActive=false;
-    }else{
-      this.ajouterIsActive=true;
-    }
-  }
-
-  activerModif(id:number){
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }else{
-      this.modifierIsActive=true;
-    }
-  }
 
 }

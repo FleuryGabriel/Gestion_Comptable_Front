@@ -1,0 +1,77 @@
+// findAll():void {
+//     this.ligneEcritureService.findAll().subscribe((data: LigneEcriture[])=>{
+//       this.ligneEcritures=data;
+      
+//       // console.log(this.ligneEcritures.map(debits=>debits.debit));
+//       this.debits.push(this.ligneEcritures.map(debits=>debits.debit));
+//       console.log("debits: " +this.debits);
+
+
+//       // console.log(this.ligneEcritures.map(months=>months.dateEcriture));
+//       // this.months.push(this.ligneEcritures.map(months=>months.dateEcriture       
+//       //   ));
+//       //   console.log("months: "+this.months);
+     
+//         var debits11=new Array();
+//         var debits12=new Array();
+//         var nov,dec:number;
+//         var debit=0;
+//         var Allmonths=new Array();
+//         for(let i=0;i<this.ligneEcritures.length;i++){
+        
+//         var debit=this.ligneEcritures[i].debit;
+//         var slices=this.ligneEcritures[i].dateEcriture;
+//         // console.log("slice "+slices.toString().slice(5,7));
+
+       
+//         var date=new Date(slices);
+//         var dtm=date.getMonth()+1;
+//         console.log("Mois "+dtm);
+        
+
+
+//          if(dtm==11){
+//           debits11.push(debit);
+//           nov=debits11.reduce((a,b)=>a+b);
+//           console.log("nov "+nov);
+         
+//          }
+//          else if(dtm==12){
+//           debits12.push(debit);
+//           dec=debits12.reduce((a,b)=>a+b);
+//           console.log("dec "+dec);
+          
+//          }
+         
+//          console.log(debit);
+//         }
+     
+//         console.log("Debits nov: "+nov)
+//         console.log("Debit dec: "+dec)
+      
+//         Allmonths.push(nov,dec);
+//         console.log(Allmonths);
+        
+
+
+//       // for(let i=0;i<this.months.length;i++){
+//       //   console.log(this.months.length)
+//       //   var slices=this.months[i];
+//       //   console.log("slice "+slices[i].slice(5,7));
+
+//       // }
+
+//       var test=new Array();
+//       // this.months.forEach(function(value){
+//       //   value.getMonth();
+//       //   console.log("here :"+value.getMonth());
+//       // })
+//     //  var testdate=new Date();
+//     //  console.log("here dateMonth: "+(testdate.getMonth()+1));
+
+//     //   console.log(this.ligneEcritures.forEach(()=>this.ligneEcriture.dateEcriture.getMonth()));
+//     //   console.log(this.ligneEcritures.map(months=>(months.dateEcriture.getMonth()+1)).slice(-2));
+                 
+//     //     ;
+//     })
+//   }

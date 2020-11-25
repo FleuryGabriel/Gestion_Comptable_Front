@@ -1,5 +1,9 @@
+import { DatePipe, getLocaleMonthNames } from '@angular/common';
 import { Component, OnInit } from "@angular/core";
 import Chart from 'chart.js';
+import { LigneEcriture } from 'src/app/models/journal/ligne-ecriture';
+import { LigneEcritureServiceService } from 'src/app/services/journal/ligne-ecriture-service.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: "app-dashboard",
@@ -15,9 +19,26 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
 
-  constructor() {}
+  ligneEcriture:LigneEcriture = new LigneEcriture();
+  ligneEcritures:LigneEcriture[] = new Array();
+  debits=new Array();
+  months=new Array();
+
+  public debits12=new Array();
+  public nov:number;
+  public dec:number;
+  public debits11=new Array();
+  public debit=0;
+  public Allmonths=new Array();
+  constructor(private ligneEcritureService:LigneEcritureServiceService,private datepipe:DatePipe) {}
 
   ngOnInit() {
+
+    this.findAll();
+
+
+
+
     var gradientChartOptionsConfigurationWithTooltipBlue: any = {
       maintainAspectRatio: false,
       legend: {
@@ -385,14 +406,17 @@ export class DashboardComponent implements OnInit {
 
 
     var chart_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    this.datasets = [
-      [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
-      [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
-      [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
-    ];
-    this.data = this.datasets[0];
 
 
+    // this.datasets = [
+    //    [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
+    //   [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
+    //   [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
+    // ];
+    // this.data = this.datasets[1];
+    this.data=this.Allmonths
+    console.log(this.Allmonths)
+    console.log(this.data)
 
     this.canvas = document.getElementById("chartBig1");
     this.ctx = this.canvas.getContext("2d");
@@ -467,4 +491,84 @@ export class DashboardComponent implements OnInit {
     this.myChartData.data.datasets[0].data = this.data;
     this.myChartData.update();
   }
+
+
+  findAll():void {
+    this.ligneEcritureService.findAll().subscribe((data: LigneEcriture[])=>{
+      this.ligneEcritures=data;
+      
+      // console.log(this.ligneEcritures.map(debits=>debits.debit));
+      this.debits.push(this.ligneEcritures.map(debits=>debits.virement));
+      console.log("debits: " +this.debits);
+
+
+      // console.log(this.ligneEcritures.map(months=>months.dateEcriture));
+      // this.months.push(this.ligneEcritures.map(months=>months.dateEcriture       
+      //   ));
+      //   console.log("months: "+this.months);
+     
+
+        for(let i=0;i<this.ligneEcritures.length;i++){
+        
+        var debit=this.ligneEcritures[i].virement;
+        var slices=this.ligneEcritures[i].dateEcriture;
+        // console.log("slice "+slices.toString().slice(5,7));
+
+       
+        var date=new Date(slices);
+        var dtm=date.getMonth()+1;
+        console.log("Mois "+dtm);
+        
+
+
+         if(dtm==11){
+          this.debits11.push(debit);
+          this.nov=this.debits11.reduce((a,b)=>a+b);
+          console.log("nov "+this.nov);
+         
+         }
+         else if(dtm==12){
+          this.debits12.push(debit);
+          this.dec=this.debits12.reduce((a,b)=>a+b);
+          console.log("dec "+this.dec);
+          
+         }
+         
+         console.log(debit);
+        }
+     
+        console.log("Debits nov: "+this.nov)
+        console.log("Debit dec: "+this.dec)
+      
+        this.Allmonths.push(this.nov,this.dec);
+        console.log(this.Allmonths);
+        
+        this.Allmonths=this.datasets;
+
+      // for(let i=0;i<this.months.length;i++){
+      //   console.log(this.months.length)
+      //   var slices=this.months[i];
+      //   console.log("slice "+slices[i].slice(5,7));
+
+      // }
+
+      var test=new Array();
+      // this.months.forEach(function(value){
+      //   value.getMonth();
+      //   console.log("here :"+value.getMonth());
+      // })
+    //  var testdate=new Date();
+    //  console.log("here dateMonth: "+(testdate.getMonth()+1));
+
+    //   console.log(this.ligneEcritures.forEach(()=>this.ligneEcriture.dateEcriture.getMonth()));
+    //   console.log(this.ligneEcritures.map(months=>(months.dateEcriture.getMonth()+1)).slice(-2));
+                 
+    //     ;
+    })
+  }
+
+
+
+
+
 }

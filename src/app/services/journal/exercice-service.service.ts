@@ -30,4 +30,8 @@ export class ExerciceServiceService {
   public deleted(id:number, exercice:Exercice):Observable<any>{
     return this.http.put(this.baseURL+"/"+id, exercice);
   }
+
+  public findNotDeleted():Observable<any>{
+    return this.http.get(this.baseURL+"NotDeleted");
+  }
 }

@@ -50,5 +50,9 @@ export class UtilisateurServiceService {
   selectUserWithLogin(login : any): Observable<any> {
     return this.httpClient.get(this.baseURL+"WithLogin?login="+login);
   }
+
+  findNotDeleted():Observable<any>{
+    return this.httpClient.get(this.baseURL+"NotDeleted");
+  }
   
 }

@@ -31,4 +31,8 @@ export class AgenceServiceService {
   public deleted(id:number, agence:Agence):Observable<any>{
     return this.http.put(this.baseURL+"/"+id, agence);
   }
+
+  public findNotDeleted():Observable<any>{
+    return this.http.get(this.baseURL+"NotDeleted")
+  }
 }

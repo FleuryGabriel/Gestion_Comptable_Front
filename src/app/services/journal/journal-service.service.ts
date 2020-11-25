@@ -30,4 +30,8 @@ export class JournalServiceService {
   public deleted(id:number, journal:Journal):Observable<any>{
     return this.http.put(this.baseURL+"/"+id, journal);
   }
+
+  public findNotDeleted():Observable<any>{
+    return this.http.get(this.baseURL+"NotDeleted");
+  }
 }

@@ -12,9 +12,6 @@ export class JournalComponent implements OnInit {
   journal:Journal = new Journal();
   journaux:Journal[];
 
-  ajouterIsActive:boolean = false;
-  modifierIsActive:boolean = false;
-
   constructor(private jService:JournalServiceService) { }
 
   ngOnInit(): void {
@@ -63,22 +60,6 @@ export class JournalComponent implements OnInit {
         }
       }
     )
-  }
-
-  activerAjout(){
-    if(this.ajouterIsActive){
-      this.ajouterIsActive=false;
-    }else{
-      this.ajouterIsActive=true;
-    }
-  }
-
-  activerModif(id:number){
-    if(this.modifierIsActive){
-      this.modifierIsActive=false;
-    }else{
-      this.modifierIsActive=true;
-    }
   }
 
 }

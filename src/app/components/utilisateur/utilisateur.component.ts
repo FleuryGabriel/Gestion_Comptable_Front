@@ -19,12 +19,19 @@ export class UtilisateurComponent implements OnInit {
   utilisateurs: Utilisateur[];
   employes: Employe[];
   roles: Role[];
+  logadm:boolean;
+  login:string;
+
 
   ngOnInit(): void {
 
     this.findAll();
     this.getEmployes();
     this.getRoles();
+
+    if(sessionStorage.getItem('Role')=="admin") {
+      this.logadm = true;};
+
   }
 
   findAll(): void {
@@ -52,10 +59,11 @@ export class UtilisateurComponent implements OnInit {
 
     this.utilisateur.dateCreation = new Date();
     this.utilisateur.deleted = false;
-    this.utilisateur.enabled = true;
+    // this.utilisateur.enabled = true;
 
     this.uService.save(this.utilisateur).subscribe(
       data => {
+        this.utilisateur = data;
         this.findAll();
         this.utilisateur = new Utilisateur();
       }
@@ -84,5 +92,16 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateur = item;
   }
 
-
+  searchByLogin(): void {
+    console.log("searching <=>");
+    console.log(this.login);
+    this.uService.selectUserWithLogin(this.login).subscribe(
+      (data: Utilisateur[]) => { 
+        this.utilisateurs = data;
+        console.log(this.utilisateurs);
+        console.log(this.login)
+      }
+    )
+    
+  }
 }

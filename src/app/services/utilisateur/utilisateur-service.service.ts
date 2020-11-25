@@ -47,4 +47,8 @@ export class UtilisateurServiceService {
     return this.httpClient.get(this.baseURL+"ByLogin?login="+login);
   }
 
+  selectUserWithLogin(login : any): Observable<any> {
+    return this.httpClient.get(this.baseURL+"WithLogin?login="+login);
+  }
+  
 }

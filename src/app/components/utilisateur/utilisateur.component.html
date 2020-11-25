@@ -2,7 +2,7 @@
   <div class=" row">
     <div class=" col-md-12">
       <div class=" card card-plain">
-        <div class="row">
+        <div class="row" *ngIf="logadm">
           <div class="col-sm-6">
             <div class="card">
               <div class="card-header">
@@ -12,28 +12,35 @@
 
                 <div class="form-group">
                   <label for="Code">Login</label>
-                  <input type="text" class="form-control" id="Login" [(ngModel)]="utilisateur.login">
+                  <input type="text" class="form-control" id="Login" [(ngModel)]="utilisateur.login" name="login">
                 </div>
 
                 <div class="form-group">
                   <label for="Nom">Password</label>
-                  <input type="text" class="form-control" id="Password" [(ngModel)]="utilisateur.password">
+                  <input type="text" class="form-control" id="Password" [(ngModel)]="utilisateur.password" name="password">
                 </div>
 
                 <div class="form-group">
                   <label for="role">Role</label>
-                  <select id="devise" [(ngModel)]="utilisateur.role" class="form-control text-Whit bg-dark">
+                  <select id="devise" [(ngModel)]="utilisateur.role" class="form-control text-Whit bg-dark" name="role">
                     <option *ngFor="let r of roles" [ngValue]="r">{{r.nom}}</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="employe">Employe</label>
-                  <select id="employe" [(ngModel)]="utilisateur.employe" class="form-control text-Whit bg-dark">
+                  <select id="employe" [(ngModel)]="utilisateur.employe" class="form-control text-Whit bg-dark"
+                    name="emp">
                     <option *ngFor="let e of employes" [ngValue]="e">{{e.nom}} - {{e.prenom}}</option>
                   </select>
                 </div>
-
-
+                <div class="form-group">
+                  <label for="employe">Activé</label>
+                  <select id="employe" [(ngModel)]="utilisateur.enabled" class="form-control text-Whit bg-dark"
+                    name="enabled">
+                    <option [value]="true">Oui</option>
+                    <option [value]="false">Non</option>
+                  </select>
+                </div>
               </div>
 
               <div class="card-footer">
@@ -48,28 +55,45 @@
             <div class="card">
               <div class="card-header">
                 <i class="fa fa-align-justify"></i> Liste utilisateurs
+
+                <nav class="navbar navbar-default navbar-inverse">
+                  <form class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                       <input type="text" class="form-control" placeholder="Search" [(ngModel)]="login" name="login" value="login" />
+                       <span class="input-group-btn">
+                           <button type="button" class="btn" (click)="searchByLogin() "> Recherche </button>
+                       </span>
+                    </div>
+                 </form>
+            </nav>
+
               </div>
+
+
+
               <div class="card-body">
                 <table class="table table-striped">
                   <thead>
                     <tr>
                       <th>Login</th>
-                      <th>Password</th>
+                      <th *ngIf="logadm">Password</th>
                       <th>Date de création</th>
                       <th>Role</th>
                       <th>Nom</th>
                       <th>Prénom</th>
+                      <th>Enabled</th>
                       <th>Opérations</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let item of utilisateurs">
                       <td>{{item.login}}</td>
-                      <td>{{item.password}}</td>
+                      <td *ngIf="logadm">{{item.password}}</td>
                       <td>{{item.dateCreation}}</td>
                       <td>{{item.role.nom}}</td>
                       <td>{{item.employe.nom}}</td>
                       <td>{{item.employe.prenom}}</td>
+                      <td>{{item.enabled}}</td>
                       <td>
                         <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>
                         <button type="button" class="btn btn-warning" (click)="selectOne(item)">Update</button>

@@ -29,63 +29,64 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private utilisateurService: UtilisateurServiceService, private dialog: MatDialog) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+   }
 
   testPop() {
     this.dialog.open(AccountdisableComponent);
   }
 
   authentification() {
-    this.utilisateurService.selectUserByLogin(this.login).subscribe((data: Utilisateur) => {this.user = data;});
-    
-    if (this.user.id != null) {
-      // console.log(this.utilisateur)
+    this.utilisateurService.selectUserByLogin(this.login).subscribe((data: Utilisateur) => {
+      this.user = data;
+        if (this.mapUserTry.has(this.login)) {
+          this.mapUserTry.set(this.login, this.mapUserTry.get(this.login) + 1);
+          console.log("Try number", this.mapUserTry.get(this.login));
+        } else {
+          this.mapUserTry.set(this.login, 1);
+          console.log("Try number", this.mapUserTry.get(this.login));
+        };
 
-      if (this.mapUserTry.has(this.login)) {
-        this.mapUserTry.set(this.login, this.mapUserTry.get(this.login) + 1);
-        console.log("Try number", this.mapUserTry.get(this.login));
-      } else { 
-        this.mapUserTry.set(this.login, 1);
-        console.log("Try number", this.mapUserTry.get(this.login)); };
-      
-      this.utilisateurService.Autentification(this.login, this.password).subscribe((data: Utilisateur) => {
-        this.utilisateur = data;
+        this.utilisateurService.Autentification(this.login, this.password).subscribe((data: Utilisateur) => {
+          this.utilisateur = data;
 
-        if (this.utilisateur != null && this.utilisateur.enabled == true) {
-          sessionStorage.setItem('utilisateur', this.utilisateur.login);
-          sessionStorage.setItem('Role', this.utilisateur.role.nom);
-        this.router.navigate(['/dashboard']);
-        this.mapUserTry = new Map();
-      }
-      else if (this.utilisateur != null && this.utilisateur.enabled == false) {
-        console.log( "pas enabled")
-        this.dialog.open(AccountdisableComponent);
-      }
-      else {
-        if (this.mapUserTry.get(this.login) <= 3){
-          console.log( "try ok but wrong mdp")
-          this.dialog.open(MdpfalseComponent)
-        }
-        else {
-        this.utilisateurService.selectUserByLogin(this.login).subscribe((data: Utilisateur) => {
-            this.utilisateur = data;
-            this.utilisateur.enabled = false;
-            //console.log("Utilisateur Dis + save  ", this.utilisateur);
-            this.utilisateurService.save(this.utilisateur).subscribe((data: Utilisateur) => {
-              //console.log("Utilisateur Dis + Methode  ", this.utilisateur);
-              console.log( "3x Try disabled user")
-            });
+          if (this.utilisateur != null && this.utilisateur.enabled == true) {
+            sessionStorage.setItem('utilisateur', this.utilisateur.login);
+            sessionStorage.setItem('Role', this.utilisateur.role.nom);
+            this.router.navigate(['/dashboard']);
+            this.mapUserTry = new Map();
+          }
+          else if (this.utilisateur != null && this.utilisateur.enabled == false) {
+            console.log("pas enabled")
+            this.dialog.open(AccountdisableComponent);
+          }
+          else {
+            if (this.mapUserTry.get(this.login) <= 3) {
+              console.log("try ok but wrong mdp")
+              this.dialog.open(MdpfalseComponent)
+            }
+            else {
+              this.utilisateurService.selectUserByLogin(this.login).subscribe((data: Utilisateur) => {
+                this.utilisateur = data;
+                this.utilisateur.enabled = false;
+                //console.log("Utilisateur Dis + save  ", this.utilisateur);
+                this.utilisateurService.save(this.utilisateur).subscribe((data: Utilisateur) => {
+                  //console.log("Utilisateur Dis + Methode  ", this.utilisateur);
+                  console.log("3x Try disabled user")
+                });
+              });
+              this.dialog.open(MessageComponent);
+            }
+          }
         });
-          this.dialog.open(MessageComponent);
-        }
-      }
-      });
-    }
 
-    else {
-      console.log( "login n'existe pas")
+    },
+    //On traite les erreurs ici
+    erreur => {
+      console.log(erreur);
       this.dialog.open(LoginunknownComponent);
-        }
-    };
 
-  }
+    });
+  };
+
+}

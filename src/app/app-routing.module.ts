@@ -20,17 +20,10 @@ import { IconsComponent } from './pages/icons/icons.component';
 
 const routes: Routes = [
 
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'dashboard',
-    redirectTo: "dashboard",
-    pathMatch: "full"
-  },
-  {
-    path: '',
+  {path: 'login',component: LoginComponent},
+  {path: 'dashboard', redirectTo: "dashboard", pathMatch: "full"},
+  {path: '', redirectTo:'login', pathMatch:"full"},
+  {path: '',
     canActivate: [AuthGuard],
     component: AdminLayoutComponent,
     children: [
@@ -40,7 +33,8 @@ const routes: Routes = [
           "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
       }
     ]
-  }, {
+  },
+  {
     path: '',
     canActivate: [AuthGuard],
     component: AuthLayoutComponent,

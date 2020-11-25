@@ -12,13 +12,8 @@
           </div>
 
           <div class="form-group">
-            <label for="Nom">Débit</label>
-            <input type="number" class="form-control" id="Debit" [(ngModel)]="ligneEcriture.debit" name="debit">
-          </div>
-
-          <div class="form-group">
-            <label for="Nom">Crédit</label>
-            <input type="number" class="form-control" id="Credit" [(ngModel)]="ligneEcriture.credit" name = "credit">
+            <label for="Nom">Virement</label>
+            <input type="number" class="form-control" id="Virement" [(ngModel)]="ligneEcriture.virement" name="virement">
           </div>
 
           <div class="form-group">
@@ -61,10 +56,8 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Libellé</th>
-                <th>Débit</th>
-                <th>Crédit</th>
+                <th>Virement</th>
                 <th>Date Ecriture</th>
                 <th>Exercices</th>
                 <th>Journaux</th>
@@ -73,10 +66,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of ligneEcritures">
-                <td>{{item.id}}</td>
                 <td>{{item.libelle}}</td>
-                <td>{{item.debit}}</td>
-                <td>{{item.credit}}</td>
+                <td>{{item.virement}}</td>
                 <td>{{item.dateEcriture}}</td>
                 <td>{{item.exercice.libelle}}</td>
                 <td>{{item.journal.libelle}}</td>

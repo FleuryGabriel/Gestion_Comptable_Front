@@ -3,8 +3,7 @@ import { Journal } from './journal';
 
 export class LigneEcriture {
     libelle:string;
-    debit:number;
-    credit:number;
+    virement:number;
     dateEcriture:Date;
     deleted:boolean;
     exercice:Exercice;

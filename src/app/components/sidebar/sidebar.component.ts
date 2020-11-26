@@ -58,7 +58,7 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/lignesEcriture",
+    path: "/ligneEcritures",
     title: "Ligne Ecriture",
     rtlTitle: "Ligne Ecriture",
     icon: "icon-align-left-2",

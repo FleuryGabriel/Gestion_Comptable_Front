@@ -21,8 +21,7 @@ export class ExerciceComponent implements OnInit {
   }
 
   save():void {
-    this.eService.save(this.exercice).subscribe(arg=> {
-      console.log(arg,"save Ok", arg.status);
+    this.eService.save(this.exercice).subscribe(()=> {
       this.exercice=new Exercice();
       this.findAll();
     });

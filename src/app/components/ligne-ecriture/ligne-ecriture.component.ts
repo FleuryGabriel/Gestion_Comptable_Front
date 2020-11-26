@@ -43,7 +43,6 @@ export class LigneEcritureComponent implements OnInit {
   
   save():void {
     this.lService.save(this.ligneEcriture).subscribe(arg=> {
-      console.log(arg,"save Ok", arg.status);
       this.ligneEcriture=new LigneEcriture();
       this.findAll();
     });

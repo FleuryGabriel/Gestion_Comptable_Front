@@ -26,4 +26,12 @@ export class DeviseServiceService {
   public deleted(id:number,devise:any):Observable<any>{
   return this.httpClient.put(this.baseURL+"/"+id,devise);
 }
+
+  public deviseDollar():Observable<any> {
+    return this.httpClient.get("https://api.exchangeratesapi.io/latest?symbols=USD,GBP,JPY")
+  }
+
+  public deviseAll():Observable<any> {
+    return this.httpClient.get("https://api.exchangeratesapi.io/latest")
+  }
 }

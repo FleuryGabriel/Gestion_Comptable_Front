@@ -1,6 +1,6 @@
 <div class="content">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-5">
       <div class="card">
         <div class="card-header">
           <strong>Création des devises</strong>
@@ -23,6 +23,44 @@
         </div>
       </div>
     </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong> Exchange rates published by the European Central Bank {{exchange.date}} </strong>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Euro</th>
+                <th>Rate</th>
+                <th>Symbol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1 EUR</td>
+                <td>{{exchange.rates.USD}} USD</td>
+                <td>  <strong>$</strong> </td>
+              </tr>
+              <tr>
+                <td>1 EUR</td>
+                <td>{{exchange.rates.GBP}} GBP</td>
+                <td><strong>£</strong></td>
+              </tr>
+              <tr>
+                <td>1 EUR</td>
+                <td>{{exchange.rates.JPY}} JPY</td>
+                <td><strong>¥</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -37,7 +75,6 @@
               <tr>
                 <th>Code</th>
                 <th>Nom</th>
-
               </tr>
             </thead>
             <tbody>

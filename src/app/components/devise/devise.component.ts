@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Devise } from 'src/app/models/compteComptable/devise';
+import { Exchange } from 'src/app/models/compteComptable/exchange';
 import { DeviseServiceService } from 'src/app/services/compteComptable/devise-service.service';
 
 @Component({
@@ -11,11 +12,13 @@ export class DeviseComponent implements OnInit {
 
   devise:Devise= new Devise();
   devises:Devise[];
+  exchange:Exchange;
 
   constructor(private deviseService:DeviseServiceService) { }
 
   ngOnInit() {
     this.findAll();
+    this.findAllDevise();
   }
   save():void {
     this.deviseService.save(this.devise).subscribe(arg=> {
@@ -43,6 +46,12 @@ export class DeviseComponent implements OnInit {
     this.deviseService.deleted(id,this.devise).subscribe(data=>{
       this.findAll();
     })
+  }
 
+  findAllDevise() {
+    this.deviseService.deviseDollar().subscribe(data=>{
+      this.exchange = data;
+      console.log(this.exchange)
+    })
   }
 }

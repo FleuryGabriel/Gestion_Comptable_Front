@@ -8,7 +8,7 @@ import { Journal } from 'src/app/models/journal/journal';
 })
 export class JournalServiceService {
 
-  private baseURL = "http://localhost:9092/journaux";
+  private baseURL = "http://localhost:9090/journaux";
   constructor(private http:HttpClient) { }
 
   public findAll():Observable<any>{

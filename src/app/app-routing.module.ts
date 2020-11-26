@@ -61,7 +61,7 @@ const routes: Routes = [
   {path:'agences', component:AgenceComponent},
   {path:'roles', component:RoleComponent},
   {path:'exercices', component:ExerciceComponent},
-  {path:'lignesEcriture', component:LigneEcritureComponent},
+  {path:'ligneEcritures', component:LigneEcritureComponent},
   {path:'journaux', component:JournalComponent}
 ];
 

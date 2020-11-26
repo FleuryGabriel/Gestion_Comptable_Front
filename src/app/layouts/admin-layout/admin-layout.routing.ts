@@ -26,7 +26,7 @@ export const AdminLayoutRoutes: Routes = [
   {path:"utilisateurs",component:UtilisateurComponent},
   {path: "exercices",component:ExerciceComponent},
   {path: "journaux",component:JournalComponent},
-  {path: "lignesEcriture",component:LigneEcritureComponent},
+  {path: "ligneEcritures",component:LigneEcritureComponent},
   {path: "compteComptables", component: CompteComptableComponent },
   {path: "devises", component: DeviseComponent },
 

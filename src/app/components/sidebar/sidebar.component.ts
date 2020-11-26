@@ -29,12 +29,12 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-single-02",
     class: ""
   },
-  {
-    path: "/roles",
-    title: "Role",
-    rtlTitle: "Role",
-    icon: "icon-vector",
-    class: "" },
+  // {
+  //  path: "/roles",
+  //  title: "Role",
+  // rtlTitle: "Role",
+  // icon: "icon-vector",
+  // class: "" },
   {
     path: "/utilisateurs",
     title: "Utilisateur",
@@ -78,7 +78,65 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-money-coins",
     class: ""
   }
+];
 
+export const ROUTESUSER: RouteInfo[] = [
+  {
+    path: "/dashboard",
+    title: "Dashboard",
+    rtlTitle: "Dashboard",
+    icon: "icon-chart-pie-36",
+    class: ""
+  },
+  {
+    path: "/agences",
+    title: "Agence ",
+    rtlTitle: "Agence",
+    icon: "icon-bank",
+    class: ""
+  },
+  {
+    path: "/employes",
+    title: "Employe",
+    rtlTitle: "Employe",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
+    path: "/exercices",
+    title: "Exercice",
+    rtlTitle: "Exercice",
+    icon: "icon-calendar-60",
+    class: ""
+  },
+  {
+    path: "/journaux",
+    title: "Journal",
+    rtlTitle:"Journal",
+    icon: "icon-book-bookmark",
+    class: ""
+  },
+  {
+    path: "/ligneEcritures",
+    title: "Ligne Ecriture",
+    rtlTitle: "Ligne Ecriture",
+    icon: "icon-align-left-2",
+    class: ""
+  },
+  {
+    path: "/compteComptables",
+    title: "Compte Comptable",
+    rtlTitle: "Compte Comptable",
+    icon: "icon-chart-bar-32",
+    class: ""
+  },
+  {
+    path: "/devises",
+    title: "Devise",
+    rtlTitle: "Devise",
+    icon: "icon-money-coins",
+    class: ""
+  }
 ];
 
 @Component({
@@ -92,7 +150,12 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    if(sessionStorage.getItem("Role") == "admin" ) {
+      this.menuItems = ROUTES.filter(menuItem => menuItem);
+    }
+    else {
+      this.menuItems = ROUTESUSER.filter(menuItem => menuItem);
+    }
   }
   isMobileMenu() {
     if (window.innerWidth > 991) {

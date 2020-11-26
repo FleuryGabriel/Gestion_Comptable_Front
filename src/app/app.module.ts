@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   imports: [
@@ -31,7 +33,7 @@ import { DatePipe } from '@angular/common';
     MatInputModule,
     MatButtonModule, 
     MatCardModule, 
-    MatFormFieldModule
+    MatFormFieldModule, CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
  
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

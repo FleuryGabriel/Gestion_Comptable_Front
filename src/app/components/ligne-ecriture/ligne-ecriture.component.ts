@@ -5,7 +5,7 @@ import { LigneEcriture } from 'src/app/models/journal/ligne-ecriture';
 import { ExerciceServiceService } from 'src/app/services/journal/exercice-service.service';
 import { JournalServiceService } from 'src/app/services/journal/journal-service.service';
 import { LigneEcritureServiceService } from 'src/app/services/journal/ligne-ecriture-service.service';
-import { JournalComponent } from '../journal/journal.component';
+
 
 @Component({
   selector: 'app-ligne-ecriture',

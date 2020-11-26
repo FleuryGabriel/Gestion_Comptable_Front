@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModalModule, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -26,10 +26,32 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MdpfalseComponent } from './login/message/mdpfalse/mdpfalse.component';
 import { AccountdisableComponent } from './login/message/accountdisable/accountdisable.component';
 import { LoginunknownComponent } from './login/message/loginunknown/loginunknown.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule } from 'angular-calendar';
+import { DateAdapter } from '@angular/material/core';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule,FormsModule, MatDialogModule,MatInputModule,MatButtonModule,MatCardModule,MatFormFieldModule],
-  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent, MdpfalseComponent, AccountdisableComponent, LoginunknownComponent],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    NgbModule,
+    FormsModule, 
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    CommonModule,
+    FormsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),],
+  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent, MdpfalseComponent, AccountdisableComponent, LoginunknownComponent, CalendarComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent]
 })
 export class ComponentsModule {}

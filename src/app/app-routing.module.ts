@@ -17,6 +17,7 @@ import { ExerciceComponent } from './components/exercice/exercice.component';
 import { LigneEcritureComponent } from './components/ligne-ecriture/ligne-ecriture.component';
 import { JournalComponent } from './components/journal/journal.component';
 import { IconsComponent } from './pages/icons/icons.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const routes: Routes = [
 
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path:'roles', component:RoleComponent},
   {path:'exercices', component:ExerciceComponent},
   {path:'lignesEcriture', component:LigneEcritureComponent},
-  {path:'journaux', component:JournalComponent}
+  {path:'journaux', component:JournalComponent},
+  {path:'calendar', component:CalendarComponent},
 ];
 
 @NgModule({

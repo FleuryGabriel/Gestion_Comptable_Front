@@ -61,6 +61,11 @@ export class CalendarComponent {
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
+    /*
+
+    METHODE A DEF POUR AFFICHER DANS LE CALENDAR
+
+
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
@@ -99,6 +104,7 @@ export class CalendarComponent {
       },
       draggable: true,
     },
+    */
   ];
 
   activeDayIsOpen: boolean = true;

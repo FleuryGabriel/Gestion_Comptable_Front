@@ -18,6 +18,7 @@ import { LigneEcritureComponent } from './components/ligne-ecriture/ligne-ecritu
 import { JournalComponent } from './components/journal/journal.component';
 import { IconsComponent } from './pages/icons/icons.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { UserhistoryComponent } from './components/history/userhistory/userhistory.component';
 
 const routes: Routes = [
 
@@ -66,6 +67,8 @@ const routes: Routes = [
   {path:'journaux', component:JournalComponent},
   {path:'calendar', component:CalendarComponent},
   {path:'ligneEcritures', component:LigneEcritureComponent},
+  {path:'userhistory', component:UserhistoryComponent},
+
 ];
 
 @NgModule({

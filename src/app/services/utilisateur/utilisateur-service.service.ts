@@ -13,6 +13,11 @@ export class UtilisateurServiceService {
   constructor(private httpClient: HttpClient, private router:Router) { }
 
   public findAll(): Observable<any> {
+    return this.httpClient.get(this.baseURL + "NotDeleted");
+  }
+
+  public findHistory(): Observable<any> {
+    
     return this.httpClient.get(this.baseURL);
   }
 

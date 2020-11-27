@@ -31,6 +31,7 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule } from 'angular-calendar';
 import { DateAdapter } from '@angular/material/core';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { UserhistoryComponent } from './history/userhistory/userhistory.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),],
-  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent, MdpfalseComponent, AccountdisableComponent, LoginunknownComponent, CalendarComponent],
+  declarations: [FooterComponent, NavbarComponent, SidebarComponent, LoginComponent, EmployeComponent, UtilisateurComponent, AgenceComponent, RoleComponent, CompteComptableComponent, DeviseComponent, ExerciceComponent, JournalComponent, LigneEcritureComponent, MessageComponent, MdpfalseComponent, AccountdisableComponent, LoginunknownComponent, CalendarComponent, UserhistoryComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent]
 })
 export class ComponentsModule {}

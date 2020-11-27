@@ -25,6 +25,7 @@
     </button>
     <div class=" navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
       <ul class=" navbar-nav ml-auto">
+        <!--
         <li class=" search-bar input-group">
           <button
             class=" btn btn-link"
@@ -76,6 +77,7 @@
             </li>
           </ul>
         </li>
+      -->
         <li class=" nav-item" ngbDropdown>
           <a
             class=" nav-link"
@@ -84,7 +86,7 @@
             ngbDropdownToggle
           >
             <div class=" photo">
-              <img alt="Profile Photo" src="assets/img/anime3.png" />
+              <img alt="Profile Photo" src="assets/img/anime3.png" /> <!-- Image profil -->
             </div>
             <b class=" caret d-none d-lg-block d-xl-block"> </b>
             <p class=" d-lg-none">Log out</p>
@@ -100,11 +102,13 @@
                 Profile
               </a>
             </li>
+            <!--
             <li class=" nav-link">
               <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
                 Settings
               </a>
             </li>
+            -->
             <li class=" dropdown-divider"></li>
             <li class=" nav-link">
               <a class=" nav-item" (click)="logout()" href="javascript:void(0)"  ngbDropdownItem>

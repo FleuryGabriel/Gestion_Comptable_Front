@@ -446,14 +446,16 @@ Methodegraph(){
     this.canvas = document.getElementById("chartBig1");
     this.ctx = this.canvas.getContext("2d");
 
+  
     var gradientStroke = this.ctx.createLinearGradient(0, 230, 0, 50);
 
     // gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     // gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
-    // gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-    gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
-    gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
-    gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
+
+    // gradientStroke.addColorStop(1, 'rgba(233,32,16,0)'); //red colors
+    gradientStroke.addColorStop(1, 'rgba(29,140,248,0.5)');
+    gradientStroke.addColorStop(0.7, 'rgba(0,0,0,0.5)');
+    gradientStroke.addColorStop(0, 'rgba(233,32,16,0.5)'); //blue colors
 
     var config = {
       type: 'line',

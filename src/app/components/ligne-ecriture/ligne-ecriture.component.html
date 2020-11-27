@@ -75,7 +75,7 @@
               <tr *ngFor="let item of ligneEcritures">
                 <td>{{item.libelle}}</td>
                 <td>{{item.virement}}</td>
-                <td>{{item.dateEcriture}}</td>
+                <td>{{item.dateEcriture | date:'dd/MM/yyyy'}}</td>
                 <td>{{item.exercice.libelle}}</td>
                 <td>{{item.journal.libelle}}</td>
                 <td>

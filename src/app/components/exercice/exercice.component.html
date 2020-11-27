@@ -56,8 +56,8 @@
               <tr *ngFor="let item of exercices">
                 <td>{{item.code}}</td>
                 <td>{{item.libelle}}</td>
-                <td>{{item.dateDebut}}</td>
-                <td>{{item.dateFin}}</td>
+                <td>{{item.dateDebut | date:'dd/MM/yyyy'}}</td>
+                <td>{{item.dateFin | date:'dd/MM/yyyy'}}</td>
 
                 <td>
                   <button type="submit" class="btn btn-danger" (click)="delete(item.id)">Delete</button>

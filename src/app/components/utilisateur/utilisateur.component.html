@@ -89,7 +89,7 @@
                     <tr *ngFor="let item of utilisateurs">
                       <td>{{item.login}}</td>
                       <td *ngIf="logadm">{{item.password}}</td>
-                      <td>{{item.dateCreation}}</td>
+                      <td>{{item.dateCreation | date:'dd/MM/yyyy'}}</td>
                       <td>{{item.role.nom}}</td>
                       <td>{{item.employe.nom}}</td>
                       <td>{{item.employe.prenom}}</td>

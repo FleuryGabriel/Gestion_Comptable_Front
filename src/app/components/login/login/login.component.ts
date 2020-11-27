@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
           this.utilisateur = data;
 
           if (this.utilisateur != null && this.utilisateur.enabled == true) {
+            sessionStorage.setItem('idUser', this.utilisateur.id);
             sessionStorage.setItem('utilisateur', this.utilisateur.login);
             sessionStorage.setItem('Role', this.utilisateur.role.nom);
             this.router.navigate(['/dashboard']);

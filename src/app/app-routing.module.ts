@@ -19,6 +19,7 @@ import { JournalComponent } from './components/journal/journal.component';
 import { IconsComponent } from './pages/icons/icons.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { UserhistoryComponent } from './components/history/userhistory/userhistory.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
 
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path:'calendar', component:CalendarComponent},
   {path:'ligneEcritures', component:LigneEcritureComponent},
   {path:'userhistory', component:UserhistoryComponent},
+  {path:'profile', component:ProfileComponent},
 
 ];
 

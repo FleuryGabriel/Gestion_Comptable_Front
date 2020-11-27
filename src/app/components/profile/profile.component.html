@@ -1,0 +1,68 @@
+ <div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card card-plain">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Mes informations</strong>
+                </div>
+                <div class="card-body">
+  
+                  <div class="form-group">
+                    <label for="Code">Login</label>
+                    <input type="text" class="form-control" id="Login" [(ngModel)]="utilisateur.login" name="login">
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="Nom">Password</label>
+                    <input type="password" class="form-control" id="Password" [(ngModel)]="utilisateur.password" name="password">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" [(ngModel)]="utilisateur.employe.nom" name="nom">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Nom">Prenom</label>
+                    <input type="text" class="form-control" id="prenom" [(ngModel)]="utilisateur.employe.prenom" name="prenom">
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="Nom">date de naissance</label>
+                    <input type="date" class="form-control" id="dob" [(ngModel)]="utilisateur.employe.dateNaissance" name="dob">
+                  </div>
+                  <div class="form-group">
+                    <label for="Nom">Email</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="utilisateur.employe.email" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="Nom">Tel</label>
+                    <input type="tel" class="form-control" id="tel" [(ngModel)]="utilisateur.employe.tel" name="tel">
+                  </div>
+                  <div class="form-group">
+                    <label for="Nom">Agence</label>
+                    <input type="text" class="form-control" id="agence" [(ngModel)]="utilisateur.employe.agence" name="agence">
+                  </div>
+
+                  <!--
+                   IMAGE INC
+                  <div class="form-group">
+                    <label for="Nom">Agence</label>
+                    <input type="text" class="form-control" id="agence" [(ngModel)]="utilisateur.employe.agence" name="agence">
+                  </div>
+                  </div>
+                -->
+                </div>
+  
+                <div class="card-footer">
+                  <button type="button" class="btn btn-success" (click)="save()">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
